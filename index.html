@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AERO ARCHIVE™ — 3D Puffer Jacket Carousel E-Commerce</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/styles/main.css">
+</head>
+<body class="loading-state">
+
+  <!-- Custom Cursor Follower -->
+  <div class="custom-cursor-dot"></div>
+  <div class="custom-cursor-follower"></div>
+
+  <!-- Luxury Editorial Preloader -->
+  <div id="preloader" class="preloader-overlay">
+    <div class="preloader-inner">
+      <div class="preloader-brand">
+        <span class="preloader-tag">TECHNICAL OUTERWEAR // 2026</span>
+        <h1 class="preloader-title">AERO ARCHIVE™</h1>
+        <p class="preloader-subtitle">800-FILL DOWN CAROUSEL SHOWCASE</p>
+      </div>
+
+      <div class="preloader-counter-wrap">
+        <div class="preloader-number"><span id="loaderPercent">00</span><span class="pct">%</span></div>
+        <div class="preloader-bar-bg">
+          <div id="loaderBar" class="preloader-bar-fill"></div>
+        </div>
+      </div>
+
+      <div class="preloader-telemetry">
+        <span id="loaderStatus" class="telemetry-text">> INITIALIZING 3D SPATIAL ENGINE...</span>
+        <span class="telemetry-frames">238 CRYSTAL 4K FRAMES</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Persistent Floating Glass Header -->
+  <header class="site-header visible-header">
+    <div class="header-inner">
+      <a href="#hero" class="brand-logo magnetic-btn">
+        <span class="logo-mark">AA</span>
+        <span class="logo-text">AERO ARCHIVE</span>
+      </a>
+
+      <nav class="nav-menu">
+        <a href="#hero" class="nav-link active">PUFFER SERIES</a>
+        <a href="#specs" class="nav-link">ENGINEERING</a>
+        <a href="#materials" class="nav-link">MATERIALS</a>
+        <a href="#colorways" class="nav-link">COLORWAYS</a>
+        <a href="#lookbook" class="nav-link">LOOKBOOK</a>
+      </nav>
+
+      <div class="header-actions">
+        <button id="soundToggle" class="sound-toggle-btn magnetic-btn" title="Toggle Sound FX">
+          <span class="sound-icon">🔊</span>
+          <span class="sound-label">SOUND [ON]</span>
+        </button>
+
+        <button class="cart-toggle-btn magnetic-btn">
+          <span class="cart-icon-svg">🛍️</span>
+          <span class="cart-label">BAG</span>
+          <span class="cart-count-badge">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Smooth Scroll Wrapper -->
+  <main id="smooth-wrapper">
+
+    <!-- HERO 3D SCROLL SECTION (Pinned 450vh) -->
+    <section id="hero" class="hero-scroll-container">
+      <div class="hero-sticky-canvas">
+        
+        <!-- Dynamic Ambient Light Aura -->
+        <div class="ambient-glow"></div>
+
+        <!-- 3D Puffer Jacket Canvas with Smooth Inertia Scrub -->
+        <div class="canvas-wrapper">
+          <canvas id="scrollCanvas"></canvas>
+        </div>
+
+        <!-- Hero Content Overlay (Editorial Layout — Zero Visual Overlap) -->
+        <div class="hero-overlay-content">
+          
+          <!-- Left Column: Story & Headline -->
+          <div class="hero-left-col reveal-block">
+            <div class="edition-badge">
+              <span class="badge-dot"></span>
+              <span>2026 EXPEDITION CAROUSEL DROP</span>
+            </div>
+
+            <h1 class="hero-headline">
+              <span class="line"><span class="line-inner">STAND OUT.</span></span>
+              <span class="line"><span class="line-inner">WITHOUT</span></span>
+              <span class="line"><span class="line-inner"><em class="glow-word">TRYING.</em></span></span>
+            </h1>
+
+            <p class="hero-description">
+              It’s not just about staying warm. It’s about stepping outside and instantly feeling confident, comfortable, and completely yourself. Engineered with 800-fill goose down inside an ultralight aerodynamic shell.
+            </p>
+
+            <div class="hero-actions">
+              <button class="btn-primary btn-add-to-bag magnetic-btn">
+                <span>ADD TO BAG — $149</span>
+                <span class="btn-arrow">→</span>
+              </button>
+              <button id="openSizeGuide" class="btn-secondary magnetic-btn">
+                <span>SIZE GUIDE</span>
+              </button>
+            </div>
+
+            <!-- Scroll Scrub Indicator -->
+            <div class="scroll-instruction">
+              <div class="scroll-mouse-icon">
+                <span class="scroll-wheel"></span>
+              </div>
+              <span class="scroll-text">SCROLL TO SPIN 3D MODEL & SHIFT COLORWAYS</span>
+            </div>
+          </div>
+
+          <!-- Right Column: Product Card & Customization -->
+          <div class="hero-right-col reveal-block">
+            <div class="product-spec-glass">
+              
+              <div class="price-header">
+                <div class="price-current">$149</div>
+                <div class="price-strike">$199</div>
+                <span class="discount-pill">25% OFF</span>
+              </div>
+
+              <!-- Colorway Readout -->
+              <div class="color-readout">
+                <span class="spec-label">ACTIVE COLORWAY:</span>
+                <span class="current-color-label">TERRACOTTA OCHRE</span>
+              </div>
+
+              <!-- Size Selector -->
+              <div class="size-selector-block">
+                <div class="selector-header">
+                  <span class="spec-label">CHOOSE YOUR SIZE:</span>
+                  <span class="size-guide-link" id="sizeGuideLink">Fit Finder</span>
+                </div>
+                <div class="size-pills-row">
+                  <button class="size-pill" data-size="36">36</button>
+                  <button class="size-pill active" data-size="38">38</button>
+                  <button class="size-pill" data-size="40">40</button>
+                  <button class="size-pill" data-size="42">42</button>
+                </div>
+                <div class="stock-badge pulse-warn">⚡ Only 3 pieces remaining in Size 38</div>
+              </div>
+
+              <!-- Highlights list -->
+              <ul class="spec-perks">
+                <li><span>✓</span> 800-Fill Cluster Goose Down</li>
+                <li><span>✓</span> Hydro-Shield 20D DWR Micro-Ripstop</li>
+                <li><span>✓</span> Sub-Zero Tested (-25°C Arctic Rating)</li>
+                <li><span>✓</span> Complimentary Worldwide Express Courier</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Hero Bottom Timeline Scrubber & 5 Colorway Pills -->
+        <div class="hero-bottom-bar">
+          
+          <!-- Color Switcher Buttons -->
+          <div class="color-switcher-pills">
+            <span class="switcher-label">COLORWAYS:</span>
+            <button class="color-pill active" data-color="terracotta" data-name="Terracotta Ochre" data-hex="#e07a46" title="Frame 045">
+              <span class="swatch-color" style="background: #e07a46;"></span>
+              <span class="swatch-name">TERRACOTTA</span>
+            </button>
+            <button class="color-pill" data-color="arctic" data-name="Arctic Platinum" data-hex="#e4e6e8" title="Frame 115">
+              <span class="swatch-color" style="background: #e4e6e8;"></span>
+              <span class="swatch-name">ARCTIC</span>
+            </button>
+            <button class="color-pill" data-color="sage" data-name="Alpine Sage" data-hex="#4f5847" title="Frame 160">
+              <span class="swatch-color" style="background: #4f5847;"></span>
+              <span class="swatch-name">SAGE</span>
+            </button>
+            <button class="color-pill" data-color="navy" data-name="Midnight Navy" data-hex="#2d3748" title="Frame 200">
+              <span class="swatch-color" style="background: #2d3748;"></span>
+              <span class="swatch-name">NAVY</span>
+            </button>
+            <button class="color-pill" data-color="onyx" data-name="Stealth Onyx" data-hex="#181a1d" title="Frame 230">
+              <span class="swatch-color" style="background: #181a1d;"></span>
+              <span class="swatch-name">ONYX</span>
+            </button>
+          </div>
+
+          <!-- Live Scrubber Telemetry -->
+          <div class="scrub-telemetry">
+            <div class="scrub-label">FRAME 001 / 238</div>
+            <div class="scrub-progress-track">
+              <div class="scrub-progress-fill"></div>
+            </div>
+            <div class="scrub-fps">60 FPS 3D SCRUB</div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 2: TECHNICAL ENGINEERING BREAKDOWN -->
+    <section id="specs" class="section-container specs-section">
+      <div class="section-header">
+        <div class="edition-badge section-eyebrow-badge">
+          <span class="badge-dot"></span>
+          <span>TECHNICAL ARCHITECTURE & CALIBRATION</span>
+        </div>
+        <h2 class="section-title">ENGINEERED FOR THE ELEMENTS</h2>
+        <p class="section-subtitle">Precision engineered with an obsession over structural loft, weight-to-heat ratio, and dynamic movement.</p>
+      </div>
+
+      <div class="specs-grid">
+        <div class="spec-card interactive-item">
+          <div class="card-glow"></div>
+          <div class="card-icon">⚡</div>
+          <h3 class="card-title">800+ Thermal Fill</h3>
+          <p class="card-desc">Responsibly sourced European white goose down offering an unprecedented warmth-to-weight profile. Micro-baffle channels prevent cold pockets.</p>
+          <div class="card-stat">
+            <span class="stat-num">-25°C</span>
+            <span class="stat-unit">CLIMATE RATING</span>
+          </div>
+        </div>
+
+        <div class="spec-card interactive-item">
+          <div class="card-glow"></div>
+          <div class="card-icon">🛡️</div>
+          <h3 class="card-title">Weather-Lock DWR</h3>
+          <p class="card-desc">Advanced fluorine-free water repellent finish combined with a 20D micro-ripstop weave that resists sharp wind gusts and precipitation.</p>
+          <div class="card-stat">
+            <span class="stat-num">20,000</span>
+            <span class="stat-unit">MM HYDROSTATIC</span>
+          </div>
+        </div>
+
+        <div class="spec-card interactive-item">
+          <div class="card-glow"></div>
+          <div class="card-icon">🪶</div>
+          <h3 class="card-title">Zero-Drag Ergonomics</h3>
+          <p class="card-desc">Articulated sleeves with anatomical gussets ensure zero hem lift when reaching. Weighs only 680 grams for effortless everyday portability.</p>
+          <div class="card-stat">
+            <span class="stat-num">680g</span>
+            <span class="stat-unit">TOTAL WEIGHT</span>
+          </div>
+        </div>
+
+        <div class="spec-card interactive-item">
+          <div class="card-glow"></div>
+          <div class="card-icon">🔒</div>
+          <h3 class="card-title">Fidlock® Hardware</h3>
+          <p class="card-desc">Magnetic storm flaps and heavy-duty YKK Aquaguard® matte zips provide hermetic sealing with tactile auto-locking precision.</p>
+          <div class="card-stat">
+            <span class="stat-num">100%</span>
+            <span class="stat-unit">WIND SEALED</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: MATERIAL SCIENCE TABS -->
+    <section id="materials" class="section-container materials-section">
+      <div class="materials-wrapper">
+        <div class="materials-left">
+          <div class="edition-badge section-eyebrow-badge">
+            <span class="badge-dot"></span>
+            <span>COMPONENT & FIBER SCIENCE</span>
+          </div>
+          <h2 class="section-title">EVERY THREAD HAS A PURPOSE</h2>
+          <p class="materials-intro">We stripped out excessive bulk and engineered four cohesive layers that adapt to fluctuating body temperatures.</p>
+
+          <div class="material-tabs">
+            <button class="mat-tab-btn active" data-tab="shell">01. OUTER SHELL</button>
+            <button class="mat-tab-btn" data-tab="insulation">02. DOWN MATRIX</button>
+            <button class="mat-tab-btn" data-tab="lining">03. THERMAL LINING</button>
+            <button class="mat-tab-btn" data-tab="hardware">04. HARDWARE</button>
+          </div>
+
+          <div class="mat-content-panel active" id="tab-shell">
+            <h4 class="panel-heading">20D Recycled Ripstop Nylon</h4>
+            <p>Spun from 100% post-consumer ocean-bound plastics and reinforced with a cross-hatch micro-grid that prevents tears from spreading. Coated with breathable microporous membrane.</p>
+            <ul class="panel-specs">
+              <li><span>Fabric Weight:</span> 38 g/m²</li>
+              <li><span>Breathability:</span> 18,000 g/m²/24hr</li>
+              <li><span>Abrasion Test:</span> 50,000+ Cycles</li>
+            </ul>
+          </div>
+
+          <div class="mat-content-panel" id="tab-insulation">
+            <h4 class="panel-heading">800 Fill Power Hydrophobic Down</h4>
+            <p>Clusters coated with an imperceptible silicone barrier that repels water vapor, retaining 98% loft even in damp coastal environments.</p>
+            <ul class="panel-specs">
+              <li><span>Loft Ratio:</span> 90/10 Cluster to Feather</li>
+              <li><span>Certification:</span> Responsible Down Standard (RDS)</li>
+              <li><span>Treatment:</span> PFC-Free DownTek™</li>
+            </ul>
+          </div>
+
+          <div class="mat-content-panel" id="tab-lining">
+            <h4 class="panel-heading">Infrared Heat-Reflective Taffeta</h4>
+            <p>Silky anti-static interior weave infused with ceramic micro-minerals that absorb human infrared heat and reflect it back to your core.</p>
+            <ul class="panel-specs">
+              <li><span>Thermal Retention:</span> +3.5°C over standard nylon</li>
+              <li><span>Skin Feel:</span> Cashmere-smooth glide</li>
+              <li><span>Moisture Wicking:</span> Instant vapor transfer</li>
+            </ul>
+          </div>
+
+          <div class="mat-content-panel" id="tab-hardware">
+            <h4 class="panel-heading">German Fidlock® & YKK Aquaguard®</h4>
+            <p>Custom matte PVD-coated metal zipper pulls with watertight polyurethane tape, paired with neodymium magnet closure flaps.</p>
+            <ul class="panel-specs">
+              <li><span>Water Resistance:</span> IPX5 Rated zippers</li>
+              <li><span>Magnet Pull:</span> 1.8kg breakaway strength</li>
+              <li><span>Operating Range:</span> -40°C to +80°C</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="materials-right">
+          <div class="material-visual-card">
+            <div class="visual-badge">EXPLODED LAYER VIEW</div>
+            <div class="layer-stack">
+              <div class="layer-item l-1"><span>LAYER 01</span> DWR HYDRO-REPELLENT</div>
+              <div class="layer-item l-2"><span>LAYER 02</span> 20D RIPSTOP RECYCLED NYLON</div>
+              <div class="layer-item l-3 highlight"><span>LAYER 03</span> 800-FILL AERO-DOWN MATRIX</div>
+              <div class="layer-item l-4"><span>LAYER 04</span> CERAMIC INFRARED LINING</div>
+            </div>
+            <div class="layer-summary">
+              <span>WEIGHT: 680g</span>
+              <span>COMPACTS INTO ITS OWN POCKET</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: COLORWAY VAULT -->
+    <section id="colorways" class="section-container colorways-section">
+      <div class="section-header">
+        <div class="edition-badge section-eyebrow-badge">
+          <span class="badge-dot"></span>
+          <span>FINISH SELECTION & COLORWAY VAULT</span>
+        </div>
+        <h2 class="section-title">THE COLORWAY VAULT</h2>
+        <p class="section-subtitle">Select any colorway to inspect it in real-time 3D rotation above.</p>
+      </div>
+
+      <div class="colorway-cards-grid">
+        
+        <div class="colorway-card" data-color="terracotta">
+          <div class="cw-color-stripe" style="background: #e07a46;"></div>
+          <div class="cw-content">
+            <span class="cw-tag">01 // CORE</span>
+            <h3 class="cw-name">TERRACOTTA OCHRE</h3>
+            <p class="cw-desc">Warm radiant solar amber engineered for high contrast alpine styling.</p>
+            <div class="cw-footer">
+              <span class="cw-price">$149</span>
+              <button class="cw-inspect-btn magnetic-btn" data-color="terracotta">INSPECT 3D ↗</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="colorway-card" data-color="arctic">
+          <div class="cw-color-stripe" style="background: #e4e6e8;"></div>
+          <div class="cw-content">
+            <span class="cw-tag">02 // EXPEDITION</span>
+            <h3 class="cw-name">ARCTIC PLATINUM</h3>
+            <p class="cw-desc">Frost-tinted bone silver with iridescent light-scattering nano-finish.</p>
+            <div class="cw-footer">
+              <span class="cw-price">$149</span>
+              <button class="cw-inspect-btn magnetic-btn" data-color="arctic">INSPECT 3D ↗</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="colorway-card" data-color="sage">
+          <div class="cw-color-stripe" style="background: #4f5847;"></div>
+          <div class="cw-content">
+            <span class="cw-tag">03 // ALPINE</span>
+            <h3 class="cw-name">ALPINE SAGE</h3>
+            <p class="cw-desc">Military-grade pine olive tone designed for forest canopy & mountain terrain.</p>
+            <div class="cw-footer">
+              <span class="cw-price">$149</span>
+              <button class="cw-inspect-btn magnetic-btn" data-color="sage">INSPECT 3D ↗</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="colorway-card" data-color="navy">
+          <div class="cw-color-stripe" style="background: #2d3748;"></div>
+          <div class="cw-content">
+            <span class="cw-tag">04 // URBAN</span>
+            <h3 class="cw-name">MIDNIGHT NAVY</h3>
+            <p class="cw-desc">Deep oceanic steel slate blue with matte storm finish.</p>
+            <div class="cw-footer">
+              <span class="cw-price">$149</span>
+              <button class="cw-inspect-btn magnetic-btn" data-color="navy">INSPECT 3D ↗</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="colorway-card" data-color="onyx">
+          <div class="cw-color-stripe" style="background: #181a1d;"></div>
+          <div class="cw-content">
+            <span class="cw-tag">05 // STEALTH</span>
+            <h3 class="cw-name">STEALTH ONYX</h3>
+            <p class="cw-desc">Deep matte carbon black. The definitive avant-garde streetwear silhouette.</p>
+            <div class="cw-footer">
+              <span class="cw-price">$149</span>
+              <button class="cw-inspect-btn magnetic-btn" data-color="onyx">INSPECT 3D ↗</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 5: UPGRADED LUXURY LOOKBOOK WITH REAL IMAGERY & MICRO-INTERACTIONS -->
+    <section id="lookbook" class="section-container lookbook-section">
+      <div class="section-header">
+        <div class="header-split">
+          <div>
+            <div class="edition-badge section-eyebrow-badge">
+              <span class="badge-dot"></span>
+              <span>FIELD LOOKBOOK 2026 ARCHIVE</span>
+            </div>
+            <h2 class="section-title">CAPTURED IN MOTION</h2>
+            <p class="section-subtitle">From high-altitude ridgelines to brutalist urban concrete. Real pieces, authentic fits.</p>
+          </div>
+          
+          <!-- Category Filter Micro-Interactions -->
+          <div class="lookbook-filter-tabs">
+            <button class="lb-filter-btn active" data-filter="all">ALL LOOKS [6]</button>
+            <button class="lb-filter-btn" data-filter="street">STREETWEAR</button>
+            <button class="lb-filter-btn" data-filter="expedition">EXPEDITION</button>
+            <button class="lb-filter-btn" data-filter="studio">ATELIER</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="lookbook-editorial-grid">
+        
+        <!-- Look 01 -->
+        <div class="lookbook-card item-featured" data-category="expedition" data-title="Terracotta Ochre — Alpine Sunrise" data-desc="Styled for high-contrast visibility on glacier ridgelines." data-img="/lookbook/look-terra.jpg" data-price="$149">
+          <div class="lb-skeleton-shimmer"></div>
+          <div class="lb-img-wrap">
+            <img src="/lookbook/look-terra.jpg" alt="Terracotta Ochre Look" class="lb-real-img" loading="lazy">
+          </div>
+          <div class="lb-card-glass">
+            <div class="lb-card-top">
+              <span class="lb-pill">LOOK 01 // EXPEDITION</span>
+              <span class="lb-color-dot" style="background: #e07a46;"></span>
+            </div>
+            <div class="lb-card-bottom">
+              <h4 class="lb-card-title">TERRACOTTA OCHRE</h4>
+              <p class="lb-card-sub">High-altitude solar contrast (-18°C)</p>
+              <div class="lb-card-action">
+                <span class="lb-price">$149</span>
+                <button class="lb-shop-btn magnetic-btn" data-color="terracotta">SHOP LOOK ↗</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Look 02 -->
+        <div class="lookbook-card" data-category="expedition" data-title="Arctic Platinum — Fjord Pass" data-desc="Bone silver shell tested in sub-zero whiteout conditions." data-img="/lookbook/look-arctic.jpg" data-price="$149">
+          <div class="lb-skeleton-shimmer"></div>
+          <div class="lb-img-wrap">
+            <img src="/lookbook/look-arctic.jpg" alt="Arctic Platinum Look" class="lb-real-img" loading="lazy">
+          </div>
+          <div class="lb-card-glass">
+            <div class="lb-card-top">
+              <span class="lb-pill">LOOK 02 // OSLO</span>
+              <span class="lb-color-dot" style="background: #e4e6e8;"></span>
+            </div>
+            <div class="lb-card-bottom">
+              <h4 class="lb-card-title">ARCTIC PLATINUM</h4>
+              <p class="lb-card-sub">Glacier traverse test (-22°C)</p>
+              <div class="lb-card-action">
+                <span class="lb-price">$149</span>
+                <button class="lb-shop-btn magnetic-btn" data-color="arctic">SHOP LOOK ↗</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Look 03 -->
+        <div class="lookbook-card" data-category="expedition" data-title="Alpine Sage — Forest Ridge" data-desc="Subdued military pine hue engineered for pine tree lines." data-img="/lookbook/look-sage.jpg" data-price="$149">
+          <div class="lb-skeleton-shimmer"></div>
+          <div class="lb-img-wrap">
+            <img src="/lookbook/look-sage.jpg" alt="Alpine Sage Look" class="lb-real-img" loading="lazy">
+          </div>
+          <div class="lb-card-glass">
+            <div class="lb-card-top">
+              <span class="lb-pill">LOOK 03 // ALPS</span>
+              <span class="lb-color-dot" style="background: #4f5847;"></span>
+            </div>
+            <div class="lb-card-bottom">
+              <h4 class="lb-card-title">ALPINE SAGE</h4>
+              <p class="lb-card-sub">Deep wilderness protection</p>
+              <div class="lb-card-action">
+                <span class="lb-price">$149</span>
+                <button class="lb-shop-btn magnetic-btn" data-color="sage">SHOP LOOK ↗</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Look 04 -->
+        <div class="lookbook-card" data-category="street" data-title="Midnight Navy — Urban Transit" data-desc="Deep steel blue paired with charcoal layers in nighttime Berlin." data-img="/lookbook/look-navy.jpg" data-price="$149">
+          <div class="lb-skeleton-shimmer"></div>
+          <div class="lb-img-wrap">
+            <img src="/lookbook/look-navy.jpg" alt="Midnight Navy Look" class="lb-real-img" loading="lazy">
+          </div>
+          <div class="lb-card-glass">
+            <div class="lb-card-top">
+              <span class="lb-pill">LOOK 04 // BERLIN</span>
+              <span class="lb-color-dot" style="background: #2d3748;"></span>
+            </div>
+            <div class="lb-card-bottom">
+              <h4 class="lb-card-title">MIDNIGHT NAVY</h4>
+              <p class="lb-card-sub">Urban commuter weatherproofing</p>
+              <div class="lb-card-action">
+                <span class="lb-price">$149</span>
+                <button class="lb-shop-btn magnetic-btn" data-color="navy">SHOP LOOK ↗</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Look 05 -->
+        <div class="lookbook-card" data-category="street" data-title="Custom Denim & Streetwear Fit" data-desc="Full look featuring hand-printed calligraphy wide denim & heavyweight mock-neck." data-img="/lookbook/look-streetwear.jpg" data-price="$149">
+          <div class="lb-skeleton-shimmer"></div>
+          <div class="lb-img-wrap">
+            <img src="/lookbook/look-streetwear.jpg" alt="Custom Streetwear Fit" class="lb-real-img" loading="lazy">
+          </div>
+          <div class="lb-card-glass">
+            <div class="lb-card-top">
+              <span class="lb-pill">LOOK 05 // ATELIER FIT</span>
+              <span class="lb-color-dot" style="background: #22c55e;"></span>
+            </div>
+            <div class="lb-card-bottom">
+              <h4 class="lb-card-title">CUSTOM DENIM FIT</h4>
+              <p class="lb-card-sub">VLOM studio hand-drawn drop</p>
+              <div class="lb-card-action">
+                <span class="lb-price">COMPLETE FIT</span>
+                <button class="lb-shop-btn magnetic-btn" data-color="onyx">VIEW FIT ↗</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Look 06 -->
+        <div class="lookbook-card" data-category="studio" data-title="Stealth Onyx Atelier Drop" data-desc="Novosibirsk custom studio rack featuring hand-finished limited streetwear runs." data-img="/lookbook/look-onyx.jpg" data-price="$149">
+          <div class="lb-skeleton-shimmer"></div>
+          <div class="lb-img-wrap">
+            <img src="/lookbook/look-onyx.jpg" alt="Stealth Onyx Studio" class="lb-real-img" loading="lazy">
+          </div>
+          <div class="lb-card-glass">
+            <div class="lb-card-top">
+              <span class="lb-pill">LOOK 06 // STEALTH</span>
+              <span class="lb-color-dot" style="background: #181a1d;"></span>
+            </div>
+            <div class="lb-card-bottom">
+              <h4 class="lb-card-title">STEALTH ONYX NOIR</h4>
+              <p class="lb-card-sub">Limited capsule series</p>
+              <div class="lb-card-action">
+                <span class="lb-price">DROP 01</span>
+                <button class="lb-shop-btn magnetic-btn" data-color="onyx">EXPLORE ↗</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 6: CUSTOMER REVIEWS -->
+    <section class="section-container reviews-section">
+      <div class="reviews-header">
+        <div>
+          <div class="edition-badge section-eyebrow-badge">
+            <span class="badge-dot"></span>
+            <span>VERIFIED EXPEDITION & BUYER REVIEWS</span>
+          </div>
+          <h2 class="section-title">4.98 / 5.0 RATING</h2>
+        </div>
+        <div class="reviews-score-badge">
+          <span class="stars">★★★★★</span>
+          <span class="score-text">Based on 1,482 verified customer orders</span>
+        </div>
+      </div>
+
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-rating">★★★★★</div>
+          <p class="review-quote">“The 3D carousel scroll preview was completely accurate. When this arrived, the loft and fabric texture blew me away. In -12°C winds in Chicago, I didn't feel a single chill.”</p>
+          <div class="review-author">
+            <strong>Julian K.</strong>
+            <span>Verified Buyer · Size 40 (Stealth Onyx)</span>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-rating">★★★★★</div>
+          <p class="review-quote">“Worth every cent. The Terracotta Ochre color turns heads constantly on the streets. Light as a feather yet feels like an insulated fortress.”</p>
+          <div class="review-author">
+            <strong>Marcus V.</strong>
+            <span>Verified Buyer · Size 38 (Terracotta)</span>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-rating">★★★★★</div>
+          <p class="review-quote">“The Fidlock magnets and storm collar make zipping up with gloves effortless. Easily the most well-thought-out winter outerwear I've ever owned.”</p>
+          <div class="review-author">
+            <strong>Elena R.</strong>
+            <span>Verified Buyer · Size 36 (Arctic Platinum)</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-top">
+          <div class="footer-brand-col">
+            <h3 class="footer-logo">AERO ARCHIVE™</h3>
+            <p class="footer-bio">An independent technical apparel atelier dedicated to lightweight extreme-cold outerwear and avant-garde ergonomics.</p>
+            <div class="footer-guarantees">
+              <span>🛡️ Lifetime Craftsmanship Warranty</span>
+              <span>🔄 30-Day Risk-Free Trial</span>
+              <span>📦 Carbon-Neutral Global Delivery</span>
+            </div>
+          </div>
+
+          <div class="footer-nav-col">
+            <h4>EXPLORE</h4>
+            <a href="#hero">3D Model Scrub</a>
+            <a href="#specs">Engineering</a>
+            <a href="#materials">Material Science</a>
+            <a href="#colorways">Colorway Vault</a>
+          </div>
+
+          <div class="footer-nav-col">
+            <h4>SUPPORT</h4>
+            <a href="#" id="footerSizeGuide">Size Guide</a>
+            <a href="#">Shipping Policy</a>
+            <a href="#">Returns & Exchanges</a>
+            <a href="#">Sustainability Report</a>
+          </div>
+
+          <div class="footer-newsletter-col">
+            <h4>STUDIO ACCESS</h4>
+            <p>Subscribe for limited drop notifications, technical deep dives, and VIP studio access.</p>
+            <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed to Studio Access!');">
+              <input type="email" placeholder="ENTER YOUR EMAIL..." required>
+              <button type="submit" class="btn-subscribe magnetic-btn">→</button>
+            </form>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>© 2026 AERO ARCHIVE / VLOM STUDIO. ALL RIGHTS RESERVED.</p>
+          <div class="footer-legal">
+            <a href="#">PRIVACY</a>
+            <a href="#">TERMS</a>
+            <a href="#">ACCESSIBILITY</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- STICKY FLOATING QUICK-BUY BAR (Reveals when scrolling past hero) -->
+  <div class="sticky-bottom-bar">
+    <div class="sticky-bar-inner">
+      <div class="sticky-product-info">
+        <div class="sticky-swatch-dot" style="background: #e07a46;"></div>
+        <div class="sticky-text-meta">
+          <span class="sticky-title">AERO-800 PUFFER</span>
+          <span class="sticky-color-name">Terracotta Ochre</span>
+        </div>
+      </div>
+
+      <div class="sticky-sizes">
+        <span class="sticky-size-label">SIZE:</span>
+        <button class="sticky-size-pill" data-size="36">36</button>
+        <button class="sticky-size-pill active" data-size="38">38</button>
+        <button class="sticky-size-pill" data-size="40">40</button>
+        <button class="sticky-size-pill" data-size="42">42</button>
+      </div>
+
+      <div class="sticky-actions">
+        <div class="sticky-price">$149</div>
+        <button class="btn-primary sticky-btn-add magnetic-btn">
+          <span>ADD TO BAG</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE-OUT SHOPPING CART DRAWER -->
+  <div class="cart-backdrop"></div>
+  <aside class="cart-drawer">
+    <div class="cart-drawer-header">
+      <div class="cart-header-title">
+        <span>YOUR SHOPPING BAG</span>
+        <span class="cart-count-pill cart-count-badge">0</span>
+      </div>
+      <button class="cart-drawer-close" aria-label="Close cart">✕</button>
+    </div>
+
+    <div class="cart-drawer-body">
+      <div class="cart-drawer-empty">
+        <span class="empty-icon">🛍️</span>
+        <p class="empty-text">Your bag is currently empty.</p>
+        <button class="btn-secondary cart-drawer-close">CONTINUE EXPLORING</button>
+      </div>
+
+      <div class="cart-drawer-items"></div>
+    </div>
+
+    <div class="cart-drawer-footer" style="display: none;">
+      <div class="cart-summary-row">
+        <span>Subtotal</span>
+        <span class="cart-subtotal-val">$0.00</span>
+      </div>
+      <div class="cart-summary-row shipping-row">
+        <span>Express Delivery</span>
+        <span class="free-pill">FREE</span>
+      </div>
+      <button class="btn-primary btn-checkout-now magnetic-btn">
+        <span>PROCEED TO SECURE CHECKOUT</span>
+        <span class="btn-arrow">→</span>
+      </button>
+      <div class="cart-security-badge">
+        <span>🔒 256-bit Encrypted Checkout · Apple Pay · Google Pay · Credit Card</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- SIZE GUIDE MODAL -->
+  <div class="size-modal-backdrop" id="sizeGuideModal">
+    <div class="size-modal-window">
+      <div class="size-modal-header">
+        <h3>AERO-800 FIT FINDER & MEASUREMENTS</h3>
+        <button class="size-modal-close" id="closeSizeModal">✕</button>
+      </div>
+      <div class="size-modal-body">
+        <p>The AERO-800 features a tailored athletic silhouette with built-in loft room for an inner knit or hoodie.</p>
+        <div class="table-responsive">
+          <table class="size-table">
+            <thead>
+              <tr>
+                <th>SIZE</th>
+                <th>CHEST (IN)</th>
+                <th>LENGTH (IN)</th>
+                <th>SLEEVE (IN)</th>
+                <th>RECOMMENDED FIT</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>36 (S)</td><td>38 - 40"</td><td>26.5"</td><td>33.5"</td><td>160 - 172 cm // Slim build</td></tr>
+              <tr class="highlight-row"><td>38 (M)</td><td>40 - 42"</td><td>27.5"</td><td>34.5"</td><td>170 - 182 cm // Standard build</td></tr>
+              <tr><td>40 (L)</td><td>42 - 44"</td><td>28.5"</td><td>35.5"</td><td>178 - 188 cm // Broad shoulders</td></tr>
+              <tr><td>42 (XL)</td><td>44 - 47"</td><td>29.5"</td><td>36.5"</td><td>185+ cm // Relaxed oversized</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOOKBOOK LIGHTBOX MODAL -->
+  <div class="lookbook-modal-backdrop" id="lookbookModal">
+    <div class="lookbook-modal-window">
+      <button class="lookbook-modal-close" id="closeLookbookModal">✕</button>
+      <div class="lb-modal-split">
+        <div class="lb-modal-image-col">
+          <img id="lbModalImg" src="" alt="Lookbook Zoom">
+        </div>
+        <div class="lb-modal-info-col">
+          <span class="lb-modal-tag">EDITORIAL ARCHIVE</span>
+          <h3 id="lbModalTitle" class="lb-modal-title">Look Title</h3>
+          <p id="lbModalDesc" class="lb-modal-desc">Look description</p>
+          <div class="lb-modal-specs">
+            <div><span>OUTERWEAR:</span> AERO-800 DOWN PUFFER</div>
+            <div><span>MODEL FIT:</span> Size 38 // 180cm</div>
+            <div><span>PRICE:</span> $149 USD</div>
+          </div>
+          <button class="btn-primary btn-add-to-bag lb-modal-buy-btn magnetic-btn">
+            <span>ADD THIS LOOK TO BAG</span>
+            <span class="btn-arrow">→</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ORDER SUCCESS / CHECKOUT CELEBRATION MODAL -->
+  <div class="checkout-success-modal">
+    <div class="modal-success-card">
+      <div class="success-icon-wrap">🎉</div>
+      <h2>RESERVATION CONFIRMED</h2>
+      <p>Thank you for pre-ordering the <strong>AERO-800 EXPEDITION PUFFER</strong>.</p>
+      <p class="order-id">ORDER REFERENCE: <strong>#AERO-2026-9812</strong></p>
+      <div class="success-details">
+        <span>Delivery: Expedited Express (2-3 business days)</span>
+        <span>Tracking link dispatched to your email.</span>
+      </div>
+      <button class="btn-primary modal-success-close">RETURN TO STUDIO</button>
+    </div>
+  </div>
+
+  <!-- Main JavaScript Bundle -->
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
